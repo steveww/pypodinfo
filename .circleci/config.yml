@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: /pypodinfo
@@ -48,3 +48,11 @@ jobs:
               docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
               docker push "steveww/pypodinfo:$CIRCLE_SHA1"
             fi
+
+workflows:
+  build_publish:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main

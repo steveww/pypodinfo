@@ -50,7 +50,7 @@ jobs:
             fi
 
 workflows:
-  build-publish:
+  build_publish:
     jobs:
       - build:
           filters:

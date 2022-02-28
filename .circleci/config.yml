@@ -8,6 +8,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Dump Enviromment
+          command: |
+            env | sort
+      - run:
           name: Install extras
           command: |
             apk update

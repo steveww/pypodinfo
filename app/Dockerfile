@@ -4,6 +4,7 @@ EXPOSE 8080
 
 WORKDIR /app
 
+# TODO - run this inside venv
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 

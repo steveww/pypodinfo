@@ -5,22 +5,42 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  build:
+    working_directory: /pypodinfo
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      image: "docker:20"
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+        name: Install extras
+        command: |
+          apk update
+          apk add --no-cache docker-compose
+      - restore_cache:
+        keys:
+          - v1-{{ .Branch }}
+        paths:
+          - /caches/pypodinfo.tar
+      - run:
+        name: Load Docker layer cache
+        command: |
+          set +o pipefail
+          docker load -i /caches/pypodinfo.tar | true
+      - run:
+        name: Build image
+        command: |
+          docker build --cache-from=pypodinfo -t pypodinfo .
+      - run:
+        name: Save Docker layer cache
+        command: |
+          mkdir /caches
+          docker save -o /caches/pypodinfo.tar pypodinfo
+      - deploy:
+        name: Push image to registry
+        command: |
+          if [ "$CIRCLE_BRANCH" = "main" ]
+          then
+            docker login -u steveww -p {{ DOCKERHUB_PASSWD }}
+            docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
+            docker push "steveww/pypodinfo:$CIRCLE_SHA1"
+          fi

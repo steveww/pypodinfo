@@ -48,3 +48,11 @@ jobs:
               docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
               docker push "steveww/pypodinfo:$CIRCLE_SHA1"
             fi
+
+workflows:
+  build-publish:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: main

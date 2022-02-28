@@ -35,12 +35,16 @@ jobs:
           command: |
             mkdir /caches
             docker save -o /caches/pypodinfo.tar pypodinfo
+      - save_cache:
+          key: v1-{{ .Branch }}-{{ epoch }}
+          paths:
+            - /caches/pypodinfo.tar
       - deploy:
           name: Push image to registry
           command: |
             if [ "$CIRCLE_BRANCH" = "main" ]
             then
-              docker login -u steveww -p {{ $DOCKERHUB_PASSWD }}
+              docker login -u steveww -p $DOCKERHUB_PASSWD
               docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
               docker push "steveww/pypodinfo:$CIRCLE_SHA1"
             fi

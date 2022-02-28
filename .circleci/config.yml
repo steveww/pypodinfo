@@ -1,5 +1,20 @@
 version: 2.1
 jobs:
+  info:
+    working_directory: /pypodinfo
+    docker:
+      - image: "docker:20"
+    steps:
+      - run:
+          name: Dump Enviromment
+          command: |
+            env | sort
+      - run:
+          name: Tag info
+          command: |
+            echo "The Git tag is << pipeline.git.tag >>"
+            echo "The Git branch is << pipeline.git.branch >>"
+  
   build:
     working_directory: /pypodinfo
     docker:
@@ -7,10 +22,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Dump Enviromment
-          command: |
-            env | sort
       - run:
           name: Install extras
           command: |
@@ -52,6 +63,7 @@ jobs:
 workflows:
   build_publish:
     jobs:
+      - info:
       - build:
           filters:
             branches:

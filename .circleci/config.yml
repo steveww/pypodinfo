@@ -40,7 +40,7 @@ jobs:
           command: |
             if [ "$CIRCLE_BRANCH" = "main" ]
             then
-              docker login -u steveww -p {{ DOCKERHUB_PASSWD }}
+              docker login -u steveww -p {{ $DOCKERHUB_PASSWD }}
               docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
               docker push "steveww/pypodinfo:$CIRCLE_SHA1"
             fi

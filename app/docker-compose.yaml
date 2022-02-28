@@ -1,18 +1,18 @@
-version: '3'
+version: "3"
 services:
   pypodinfo:
     build:
-      context: '.'
+      context: .
     image: steveww/pypodinfo
     ports:
-      - '8080:8080'
+      - "8080:8080"
     healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
-      interval: 10s
-      timeout: 3s
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: "10s"
+      timeout: "3s"
       retries: 3
     logging:
-      driver: 'json-file'
+      driver: "json-file"
       options:
-        max-size: '1m'
-        max-file: 2
+        max-size: "1m"
+        max-file: "2"

@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Save Docker layer cache
           command: |
-            mkdir /caches
+            mkdir -p /caches
             docker save -o /caches/pypodinfo.tar pypodinfo
       - save_cache:
           key: v1-{{ .Branch }}-{{ epoch }}

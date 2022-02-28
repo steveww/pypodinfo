@@ -8,35 +8,35 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-        name: Install extras
-        command: |
-          apk update
-          apk add --no-cache docker-compose
+          name: Install extras
+          command: |
+            apk update
+            apk add --no-cache docker-compose
       - restore_cache:
-        keys:
-          - v1-{{ .Branch }}
-        paths:
-          - /caches/pypodinfo.tar
+          keys:
+            - v1-{{ .Branch }}
+          paths:
+            - /caches/pypodinfo.tar
       - run:
-        name: Load Docker layer cache
-        command: |
-          set +o pipefail
-          docker load -i /caches/pypodinfo.tar | true
+          name: Load Docker layer cache
+          command: |
+            set +o pipefail
+            docker load -i /caches/pypodinfo.tar | true
       - run:
-        name: Build image
-        command: |
-          docker build --cache-from=pypodinfo -t pypodinfo .
+          name: Build image
+          command: |
+            docker build --cache-from=pypodinfo -t pypodinfo .
       - run:
-        name: Save Docker layer cache
-        command: |
-          mkdir /caches
-          docker save -o /caches/pypodinfo.tar pypodinfo
+          name: Save Docker layer cache
+          command: |
+            mkdir /caches
+            docker save -o /caches/pypodinfo.tar pypodinfo
       - deploy:
-        name: Push image to registry
-        command: |
-          if [ "$CIRCLE_BRANCH" = "main" ]
-          then
-            docker login -u steveww -p {{ DOCKERHUB_PASSWD }}
-            docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
-            docker push "steveww/pypodinfo:$CIRCLE_SHA1"
-          fi
+          name: Push image to registry
+          command: |
+            if [ "$CIRCLE_BRANCH" = "main" ]
+            then
+              docker login -u steveww -p {{ DOCKERHUB_PASSWD }}
+              docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
+              docker push "steveww/pypodinfo:$CIRCLE_SHA1"
+            fi

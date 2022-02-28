@@ -63,7 +63,7 @@ jobs:
 workflows:
   build_publish:
     jobs:
-      - info:
+      - info\
       - build:
           filters:
             branches:

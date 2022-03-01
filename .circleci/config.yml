@@ -53,11 +53,11 @@ jobs:
       - deploy:
           name: Push image to registry
           command: |
-            if [ "$CIRCLE_BRANCH" = "main" ]
+            if [ -n "$CIRCLE_TAG" ]
             then
               docker login -u steveww -p $DOCKERHUB_PASSWD
-              docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_SHA1"
-              docker push "steveww/pypodinfo:$CIRCLE_SHA1"
+              docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_TAG"
+              docker push "steveww/pypodinfo:$CIRCLE_TAG"
             fi
 
 workflows:

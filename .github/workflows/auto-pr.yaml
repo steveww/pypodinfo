@@ -8,6 +8,9 @@ jobs:
     name: Open PR to main
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
+        run: |
+          env | sort
       - uses: actions/checkout@v2
         name: checkout
       

@@ -40,7 +40,11 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build --cache-from=pypodinfo -t pypodinfo app
+            docker build \
+            --cache-from=pypodinfo \
+            --build-arg="VERSION=${CIRCLE_TAG:-CIRCLE_SHA1}" \
+            -t pypodinfo \
+            app
       - run:
           name: Save Docker layer cache
           command: |
@@ -67,6 +71,6 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /.*/
+              only: main
             tags:
               only: /[0-9]+\.[0-9]+\.[0-9]+/

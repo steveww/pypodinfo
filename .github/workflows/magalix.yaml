@@ -1,0 +1,17 @@
+name: Trusted Delivery
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  kubeguard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: policy-check
+        uses: magalixcorp/magalix-action@main
+        with:
+          webhook: ${{ secrets.KUBEGUARD_WEBHOOK }}

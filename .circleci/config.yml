@@ -42,7 +42,7 @@ jobs:
           command: |
             docker build \
             --cache-from=pypodinfo \
-            --build-arg="VERSION=${CIRCLE_TAG:-CIRCLE_SHA1}" \
+            --build-arg="VERSION=${CIRCLE_TAG:-$CIRCLE_SHA1}" \
             -t pypodinfo \
             app
       - run:
@@ -57,12 +57,9 @@ jobs:
       - deploy:
           name: Push image to registry
           command: |
-            if [ -n "$CIRCLE_TAG" ]
-            then
-              docker login -u steveww -p $DOCKERHUB_PASSWD
-              docker tag pypodinfo "steveww/pypodinfo:$CIRCLE_TAG"
-              docker push "steveww/pypodinfo:$CIRCLE_TAG"
-            fi
+            docker login -u steveww -p $DOCKERHUB_PASSWD
+            docker tag pypodinfo "steveww/pypodinfo:${CIRCLE_TAG:-$CIRCLE_SHA1}"
+            docker push "steveww/pypodinfo:${CIRCLE_TAG:-$CIRCLE_SHA1}"
 
 workflows:
   build_publish:

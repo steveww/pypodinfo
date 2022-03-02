@@ -1,4 +1,5 @@
 import logging
+import os
 import socket
 
 from flask import Flask
@@ -50,7 +51,7 @@ def ping():
 
 @app.route('/', methods=['GET'])
 def index():
-    version = '1.0.0'
+    version = os.environ.get('VERSION', 'unknown')
     host = socket.gethostname()
 
     return render_template('index.html', version=version, host=host)

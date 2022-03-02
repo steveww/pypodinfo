@@ -1,5 +1,8 @@
 FROM python:3.10
 
+ARG VERSION
+ENV VERSION=${VERSION:-latest}
+
 EXPOSE 8080
 
 WORKDIR /app

@@ -3,6 +3,8 @@ services:
   pypodinfo:
     build:
       context: .
+      args:
+        VERSION: development
     image: steveww/pypodinfo
     ports:
       - "8080:8080"

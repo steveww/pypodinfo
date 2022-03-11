@@ -27,7 +27,7 @@ Running `add-repo.sh` will create an instance GitRepository CRD.
 
 ## Create a Kustomization
 
-To deploy an application run `kustomization.sh`. This creates an instance of Flux Kustomization which
+To deploy an application run `kustomization-<environment>.sh`. This creates an instance of Flux Kustomization which
 references the GitRepository created in the previous step. The Kustomization will scan the given
 directory within the GitRepository for Kubernetes manifests.
 
@@ -58,3 +58,16 @@ The Kubernetes Deployment manifests reference ImagePolicy.
 image: docker.io/steveww/pypodinfo:1.0.1 # {"$imagepolicy": "flux-system:pypodinfo-prod"}
 image: docker.io/steveww/pypodinfo:Build-51 # {"$imagepolicy": "flux-system:pypodinfo-staging"}
 ```
+
+# TO DO
+
+Figure out how to break infinite loop!
+
+* Commit
+* CircleCI builds and pushes
+* Flux picks up new tag
+* Commit
+* ...
+
+This [Blog](https://circleci.com/blog/circleci-hacks-automate-the-decision-to-skip-builds-using-a-git-hook/) looks
+like a good idea.

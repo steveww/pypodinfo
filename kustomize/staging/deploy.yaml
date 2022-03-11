@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: pypodinfo
-        image: docker.io/steveww/pypodinfo:1.0.1 # {"$imagepolicy": "flux-system:pypodinfo-staging"}
+        image: docker.io/steveww/pypodinfo:Build-51 # {"$imagepolicy": "flux-system:pypodinfo-staging"}
         imagePullPolicy: IfNotPresent
         ports:
         - name: http

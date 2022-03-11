@@ -11,6 +11,18 @@ Running `bootstrap.sh` will install Flux and set it up to watch a GitHub reposit
 
 ## Add GitHub Respository
 
+The GitRepository requires SSH credentails because the image update automation will want to
+push changes into the repository. Create a key pair.
+
+```shell
+$ ssh-keygen -t rsa -N '' -f identity
+$ ssh-keyscan github.com > known_hosts
+$ kubectl -n flux-system create secret generic ssh-credentials \
+    --from-file=identity \
+    --from-file=identity.pub \
+    --from-file=known_hosts
+```
+
 Running `add-repo.sh` will create an instance GitRepository CRD.
 
 ## Create a Kustomization

@@ -2,7 +2,7 @@ name: CircleCI
 on:
   push:
     branches: ["main"]
-    paths: ["app/**"]
+    paths: ["app/**", ".circleci/config.yml"]
 
 jobs:
   trigger-circleci:

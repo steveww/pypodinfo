@@ -5,5 +5,7 @@ resources:
   - namespace.yaml
   - ../app
 
-patches:
-  - patch-deploy.yaml
+images:
+  - name: docker.io/steveww/pypodinfo
+    newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-prod:name"}
+    newTag: 1.0.0 # {"$imagepolicy": "flux-system:pypodinfo-prod:tag"}

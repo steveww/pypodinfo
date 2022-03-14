@@ -3,5 +3,9 @@ kind: Kustomization
 namespace: pypodinfo-staging
 resources:
   - namespace.yaml
-  - deploy.yaml
-  - service.yaml
+  - ../app
+
+images:
+  - name: docker.io/steveww/pypodinfo
+    newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-staging:name"}
+    newTag: Build-1 # {"$imagepolicy": "flux-system:pypodinfo-staging:tag"}

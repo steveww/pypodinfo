@@ -60,14 +60,3 @@ image: docker.io/steveww/pypodinfo:Build-51 # {"$imagepolicy": "flux-system:pypo
 ```
 
 # TO DO
-
-Figure out how to break infinite loop!
-
-* Commit
-* CircleCI builds and pushes
-* Flux picks up new tag
-* Commit
-* ...
-
-This [Blog](https://circleci.com/blog/circleci-hacks-automate-the-decision-to-skip-builds-using-a-git-hook/) looks
-like a good idea.

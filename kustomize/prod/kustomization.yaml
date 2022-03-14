@@ -3,5 +3,7 @@ kind: Kustomization
 namespace: pypodinfo-prod
 resources:
   - namespace.yaml
-  - deploy.yaml
-  - service.yaml
+  - ../app
+
+patches:
+  - patch-deploy.yaml

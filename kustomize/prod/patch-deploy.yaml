@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pypodinfo
+spec:
+  template:
+    spec:
+      containers:
+        - name: pypodinfo
+          image: scum:bag # {"$imagepolicy": "flux-system:pypodinfo-prod"}

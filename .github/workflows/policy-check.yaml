@@ -2,7 +2,7 @@ name: Trusted Delivery
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "flux-image-update" ]
     paths: [ "kustomize/**" ]
   pull_request:
     branches: [ "main" ]

@@ -7,4 +7,4 @@ resources:
 images:
 - name: docker.io/steveww/pypodinfo
   newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-staging:name"}
-  newTag: Build-79 # {"$imagepolicy": "flux-system:pypodinfo-staging:tag"}
+  newTag: Build-81 # {"$imagepolicy": "flux-system:pypodinfo-staging:tag"}

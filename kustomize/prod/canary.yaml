@@ -1,8 +1,7 @@
 apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
-  name: pypodinfo-prod
-  namespace: pypodinfo-prod
+  name: pypodinfo
 spec:
   provider: nginx
   targetRef:

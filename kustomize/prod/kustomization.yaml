@@ -4,6 +4,8 @@ namespace: pypodinfo-prod
 resources:
 - namespace.yaml
 - ../app
+- canary.yaml
+- ingress.yaml
 images:
 - name: docker.io/steveww/pypodinfo
   newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-prod:name"}

@@ -4,6 +4,7 @@ namespace: pypodinfo-staging
 resources:
 - namespace.yaml
 - ../app
+- service.yaml
 images:
 - name: docker.io/steveww/pypodinfo
   newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-staging:name"}

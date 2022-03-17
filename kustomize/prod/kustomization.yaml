@@ -10,3 +10,11 @@ images:
 - name: docker.io/steveww/pypodinfo
   newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-prod:name"}
   newTag: 1.0.3 # {"$imagepolicy": "flux-system:pypodinfo-prod:tag"}
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: pypodinfo
+        annotations:
+          timestamp: "2022-03-17 12:57"

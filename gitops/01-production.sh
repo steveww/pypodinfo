@@ -4,7 +4,7 @@
 
 set -e
 
-SCRIPTS="helm-nginx-repo helm-nginx helm-flagger-repo helm-flagger helm-loadtest kustomization-prod"
+SCRIPTS="helm-nginx-repo helm-nginx helm-flagger-repo helm-flagger helm-loadtest image-policy-prod image-auto-prod kustomization-prod"
 SCRIPTPATH=$(dirname "$0")
 
 for SCRIPT in $SCRIPTS

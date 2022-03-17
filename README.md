@@ -5,7 +5,7 @@ Just a simple Flask application to show some basic information.
 
 # GitOps
 A complete set of example configurations using [Flux](https://fluxcd.io/) for fully automatic
-Trusted Delivery.
+Trusted Delivery. All the configuration scripts are [here](/gitops).
 
 # Trusted Delivery
 Trusted Delivery uses Policy as Code to validate manifests at critical points in the software

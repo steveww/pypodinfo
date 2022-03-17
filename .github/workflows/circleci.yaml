@@ -1,6 +1,7 @@
 name: CircleCI
 on:
   push:
+    tags: ["1.*"]
     branches: ["main"]
     paths: ["app/**", ".circleci/config.yml"]
 

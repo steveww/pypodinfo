@@ -82,6 +82,3 @@ load generation utility with `helm-flagger.sh` and `helm-loadtest.sh`.
 To manage the progessive shifting of traffic for Production, NGINX will be used. This is also available
 via a Helm repository, `helm-nginx-repo.sh` creates this. Finally `helm-nginx.sh` installs NGINX Ingress.
 
-# TO DO
-
-Reorganise the gitops directory and write some bulk installers.

@@ -16,5 +16,8 @@ patches:
     kind: Deployment
     metadata:
       name: pypodinfo
-      annotations:
-        timestamp: "2022-03-17 12:57"
+    spec:
+      template:
+        metadata:
+          annotations:
+            timestamp: "2022-03-18 15:07"

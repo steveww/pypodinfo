@@ -35,4 +35,4 @@ spec:
         url: http://test-loadtest-loadtester.test/
         timeout: 5s
         metadata:
-          cmd: "hey -H 'Host: end2end.weave.works' -z 2m -q 10 -c 2 http://pypodinfo-canary.pypodinfo-prod:8080/"
+          cmd: "hey -host end2end.weave.works -z 2m -q 10 -c 2 http://ingress-nginx-ingress-nginx-controller.ingress-nginx/"

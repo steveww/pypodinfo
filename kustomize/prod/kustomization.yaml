@@ -5,6 +5,7 @@ resources:
 - namespace.yaml
 - ../app
 - canary.yaml
+- metric.yaml
 - ingress.yaml
 images:
 - name: docker.io/steveww/pypodinfo
@@ -20,4 +21,4 @@ patches:
       template:
         metadata:
           annotations:
-            timestamp: "2022-03-21 14:30"
+            timestamp: "2022-03-21 14:43"

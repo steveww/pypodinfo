@@ -11,6 +11,7 @@ images:
 - name: docker.io/steveww/pypodinfo
   newName: docker.io/steveww/pypodinfo # {"$imagepolicy": "flux-system:pypodinfo-prod:name"}
   newTag: 1.0.4 # {"$imagepolicy": "flux-system:pypodinfo-prod:tag"}
+# Use annotation to trigger Flagger
 patches:
 - patch: |-
     apiVersion: apps/v1

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: grafana
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: grafana
@@ -44,8 +44,7 @@ spec:
               mountPath: /etc/grafana/provisioning/datasources
             - name: providers
               mountPath: /etc/grafana/provisioning/dashboards
-          resources:
-            {}
+          resources: {}
       volumes:
         - name: grafana
           emptyDir: {}
@@ -58,3 +57,4 @@ spec:
         - name: datasources
           configMap:
             name: grafana-datasources
+

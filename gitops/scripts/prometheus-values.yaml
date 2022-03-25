@@ -1,0 +1,6 @@
+prometheus:
+  prometheusSpec:
+    scrapeInterval: 5s
+
+grafana:
+  adminPassword: gitops

@@ -16,6 +16,7 @@ flux create helmrelease prometheus \
     --source=HelmRepository/prometheus \
     --chart=kube-prometheus-stack \
     --chart-version='>34.0.0' \
+    --crds=CreateReplace \
     --target-namespace=prometheus \
     --values="${SCRIPTPATH}/prometheus-values.yaml" \
     --export

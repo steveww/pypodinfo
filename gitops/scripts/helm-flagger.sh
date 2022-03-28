@@ -7,6 +7,7 @@ flux create helmrelease flagger \
     --source=HelmRepository/flagger \
     --chart=flagger \
     --chart-version='>1.0.0' \
+    --crds=CreateReplace \
     --target-namespace=ingress-nginx \
     --values="${SCRIPTPATH}/flagger-values.yaml" \
     --export

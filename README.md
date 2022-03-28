@@ -32,5 +32,4 @@ for production is that rather than use the normal Kubernetes rolling update, pro
 a canary release is performed. This is handled via [Flagger](https://flagger.app/) and NGINX Ingress.
 
 # TO DO
-Install `kube-state-metrics` and `prometheus-node-exporter` via Helm from `prometheus-community`.
-They will need `values.yaml` files for tweaks.
+Install Loki and set up logging collection.

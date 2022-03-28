@@ -8,12 +8,12 @@ SCRIPTS="helm-prometheus-repo helm-prometheus kustomization-monitoring"
 SCRIPTPATH=$(dirname "$0")
 
 SCRIPT="git-repo"
-if [ ! -f "$SCRIPT" ]
+CMD="${SCRIPT}.sh"
+YAML="${SCRIPT}.yaml"
+
+if [ ! -f "$YAML" ]
 then
     echo "$SCRIPT"
-    CMD="${SCRIPT}.sh"
-    YAML="${SCRIPT}.yaml"
-
     "$SCRIPTPATH/scripts/$CMD" > "$YAML"
 fi
 

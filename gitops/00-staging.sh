@@ -4,7 +4,7 @@
 
 set -e
 
-SCRIPTS="git-repo image-repo image-policy-staging image-auto-staging kustomization-staging"
+SCRIPTS="image-repo image-policy-staging image-auto-staging kustomization-staging"
 SCRIPTPATH=$(dirname "$0")
 
 SCRIPT="git-repo"

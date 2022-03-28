@@ -1,3 +1,4 @@
-prometheus:
-  install: true
+metricsServer: http://prometheus-prometheus-kube-prometheus.prometheus:9090
 meshProvider: nginx
+podMonitor:
+  enabled: true

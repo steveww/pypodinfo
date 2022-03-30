@@ -4,7 +4,7 @@ metadata:
   name: ingress-nginx
   namespace: prometheus
   labels:
-    app.kubernetes.io/part-of: flux
+    app.kubernetes.io/part-of: flagger
 spec:
   namespaceSelector:
     matchNames:

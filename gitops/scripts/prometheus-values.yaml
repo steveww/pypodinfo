@@ -1,9 +1,8 @@
 prometheus:
   prometheusSpec:
     scrapeInterval: 5s
-    podMonitorSelector:
-      matchLabels:
-        app.kubernetes.io/part-of: flux
+    podMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelector: {}
 
 grafana:
   adminPassword: gitops

@@ -4,6 +4,7 @@ namespace: prometheus
 resources:
   - flux-podmonitor.yaml
   - nginx-podmonitor.yaml
+  - loki-datasource.yaml
 configMapGenerator:
   - name: flux-dashboards
     files:

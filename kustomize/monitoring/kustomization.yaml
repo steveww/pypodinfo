@@ -10,6 +10,8 @@ configMapGenerator:
     files:
       - ../../dashboards/control-plane.json
       - ../../dashboards/cluster.json
+      - ../../dashboards/flux-apps.json
+      - ../../dashboards/flux-engine.json
     options:
       labels:
         grafana_dashboard: "1"

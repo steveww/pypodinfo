@@ -21,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1648823712622,
+  "iteration": 1648824715621,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -112,6 +112,20 @@
               {
                 "id": "unit",
                 "value": "s"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "NaN": {
+                        "index": 0,
+                        "text": "Idle"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
               }
             ]
           }
@@ -288,6 +302,6 @@
   "timezone": "",
   "title": "Flux Applications",
   "uid": "wPPg7Ys7k",
-  "version": 7,
+  "version": 1,
   "weekStart": ""
 }

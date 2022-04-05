@@ -19,7 +19,7 @@ then
     exit 1
 fi
 
-cat <<!EOF!
+cat <<!EOF! > "$FILE"
 ---
 apiVersion: v1
 kind: Namespace
@@ -30,7 +30,7 @@ metadata:
 
 flux create secret git $NAME \
     --url='ssh://git@github.com/steveww/pypodinfo' \
-    --export > $FILE
+    --export >> $FILE
 
 echo ""
 echo "Public key. Copy this to GitHub."

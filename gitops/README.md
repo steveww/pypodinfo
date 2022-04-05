@@ -22,12 +22,12 @@ and copy it into the management repository created by `bootstrap.sh`. Commit and
 ## Secrets and Bootstrap
 
 The GitRepository requires SSH credentails because the image update automation will want to
-push changes into the repository. Create a key pair by running `ssh-credentials.sh`. This
+push changes into the repository. Create a key pair by running `ssh-credentials.sh`. You need to have `yq` installed on your system, on Mac `brew install yq` on Linux most package managers have this in their repositories. The script
 creates a `ssh-credentials.yaml` file and prints out the public key. Create the secret in
 Kubernetes then delete the file. **DO NOT** push this to GitHub.
 
 ```shell
-$ kubectl -n flux-system apply -f ssh-credentials.yaml
+$ kubectl apply -f ssh-credentials.yaml
 ```
 
 Copy the public key and use it to create a

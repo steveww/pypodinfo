@@ -21,6 +21,11 @@ and copy it into the management repository created by `bootstrap.sh`. Commit and
 
 ## Secrets and Bootstrap
 
+Before you can bootstrap Flux, you'll need to edit `bootstrap.sh` and put your details in there. See the Flux
+[documentation](https://fluxcd.io/docs/installation/#github-and-github-enterprise) for full details.
+
+Running `bootstrap.sh` will install Flux and set it up to watch your GitOps management GitHub repository.
+
 The GitRepository requires SSH credentails because the image update automation will want to
 push changes into the repository. Create a key pair by running `ssh-credentials.sh`. You need to have `yq` installed on your system, on Mac `brew install yq` on Linux most package managers have this in their repositories. The script
 creates a `ssh-credentials.yaml` file and prints out the public key. Create the secret in
@@ -33,8 +38,3 @@ $ kubectl apply -f ssh-credentials.yaml
 Copy the public key and use it to create a
 [deploy key](https://docs.github.com/en/developers/overview/managing-deploy-keys)
 with write access on GitHub.
-
-Before you can bootstrap Flux, you'll need to edit `bootstrap.sh` and put your details in there. See the Flux
-[documentation](https://fluxcd.io/docs/installation/#github-and-github-enterprise) for full details.
-
-Running `bootstrap.sh` will install Flux and set it up to watch your GitOps management GitHub repository.

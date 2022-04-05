@@ -4,7 +4,7 @@
 
 set -e
 
-SCRIPTS="helm-prometheus-repo helm-prometheus kustomization-monitoring"
+SCRIPTS="helm-prometheus-repo helm-prometheus helm-grafana-repo helm-loki kustomization-monitoring"
 SCRIPTPATH=$(dirname "$0")
 
 SCRIPT="git-repo"

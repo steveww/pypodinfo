@@ -5,8 +5,7 @@ FILE=${NAME}.yaml
 
 clear
 echo "Creating K8s secret $NAME in file $FILE"
-/bin/echo -n "Continue <y/n>? "
-read ANS
+read -p "Continue <y/n>? " ANS
 if [ "$ANS" != "y" ]
 then
     echo "Bye"
@@ -15,10 +14,19 @@ fi
 
 if ! which -s yq
 then
-    echo "yq not install or not on the PATH"
+    echo "yq not installed or not on the PATH"
     echo "Bye"
     exit 1
 fi
+
+cat <<!EOF!
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flux-system
+
+!EOF!
 
 flux create secret git $NAME \
     --url='ssh://git@github.com/steveww/pypodinfo' \

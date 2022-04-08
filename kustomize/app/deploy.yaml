@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pypodinfo
 spec:
-  replicas: 1
+  replicas: 2
   minReadySeconds: 3
   revisionHistoryLimit: 5
   progressDeadlineSeconds: 60

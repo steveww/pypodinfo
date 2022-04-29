@@ -1,0 +1,7 @@
+adminUser:
+  create: true
+  passwordHash: $2a$10$otqcIMsDRKpaQcp2P57Ar.k7JYa/J3GSNyJH52kN9Rqt23yr8rceS
+  username: admin
+namespace: flux-system
+rbac:
+  create: true

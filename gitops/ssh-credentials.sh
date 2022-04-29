@@ -26,4 +26,5 @@ flux create secret git $NAME \
 echo ""
 echo "Public key. Copy this to GitHub."
 echo ""
-yq eval '.stringData."identity.pub"' $FILE
+yq eval '.stringData."identity.pub"' $FILE > key.pub
+cat key.pub

@@ -24,7 +24,7 @@ spec:
       containers:
         - name: pypodinfo
           image: docker.io/steveww/pypodinfo:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080

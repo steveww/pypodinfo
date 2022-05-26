@@ -20,5 +20,5 @@ jobs:
           destination_branch: "main"
           pr_title: "Flux automatic image update"
           pr_body: "A new version of the image is available"
-          pr_draft: true
+          pr_draft: false
           github_token: ${{ secrets.GITHUB_TOKEN }}

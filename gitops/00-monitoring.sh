@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# This script should be run after 00-staging.sh
 
 set -e
 

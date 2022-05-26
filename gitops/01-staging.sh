@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# This script should be run after Flux bootstrap and SSH credentails
 
 set -e
 

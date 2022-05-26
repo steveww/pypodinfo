@@ -38,10 +38,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - restore_cache:
-          keys:
-            - v1-{{ .Branch }}
-          paths:
-            - /caches/pypodinfo.tar
+          key: v1-{{ .Branch }}
       - run:
           name: Load Docker layer cache
           command: |
@@ -61,10 +58,10 @@ jobs:
             mkdir -p /caches
             docker save -o /caches/pypodinfo.tar pypodinfo
       - save_cache:
-          key: v1-{{ .Branch }}-{{ epoch }}
+          key: v1-{{ .Branch }}
           paths:
             - /caches/pypodinfo.tar
-      - deploy:
+      - run:
           name: Push image to registry
           command: |
             TAG="${CIRCLE_TAG:-Build-$CIRCLE_BUILD_NUM}"

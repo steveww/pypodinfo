@@ -5,7 +5,7 @@ prometheus:
     podMonitorSelector: {}
 
 grafana:
-  adminPassword: gitopsyourlife
+  adminPassword: gitops
   sidecar:
     dashboards:
       searchNamespace: ALL

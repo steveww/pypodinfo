@@ -1,7 +1,7 @@
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
-  name: guthub-dispatch
+  name: github-dispatch
   namespace: flux-system
 spec:
   summary: "blog testing"

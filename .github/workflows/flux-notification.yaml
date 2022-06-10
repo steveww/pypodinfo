@@ -1,0 +1,13 @@
+name: Flux Notification
+on:
+  repository_dispatch:
+
+jobs:
+  do-stuff:
+    name: Dump Event
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          env | sort
+          echo "payload: ${{ toJson(github.event) }}"

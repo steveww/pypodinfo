@@ -1,0 +1,5 @@
+accountId: weaveworks
+clusterId: webinar
+
+certmanager:
+  install: true

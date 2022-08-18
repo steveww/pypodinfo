@@ -3,7 +3,7 @@
 
 set -e
 
-SCRIPTS="helm-wgitops-repo helm-wgitops helm-prometheus-repo helm-prometheus helm-grafana-repo helm-loki kustomization-monitoring"
+SCRIPTS="helm-wgitops-repo helm-wgitops helm-prometheus-repo helm-prometheus helm-grafana-repo helm-loki kustomization-monitoring helm-policy-repo helm-policy kustomization-policy"
 SCRIPTPATH=$(dirname "$0")
 
 SCRIPT="git-repo"

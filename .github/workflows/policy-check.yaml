@@ -27,5 +27,5 @@ jobs:
     - name: policy-agent
       uses: weaveworks/weave-action@v1
       with:
-        path: working-branch/apps/webinar-app
+        path: working-branch/kustomize
         policies-path: policy-library/policy

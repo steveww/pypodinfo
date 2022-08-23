@@ -51,6 +51,4 @@ spec:
               cpu: 100m
               memory: 32Mi
           securityContext:
-            capabilities:
-              drop:
-                - ALL
+            allowPrivilegeEscalation: false

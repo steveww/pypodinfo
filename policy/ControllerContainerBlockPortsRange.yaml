@@ -28,7 +28,7 @@ spec:
     - name: exclude_namespace
       type: string
       required: false
-      value:
+      value: ingress-nginx
     - name: exclude_label_key
       type: string
       required: false

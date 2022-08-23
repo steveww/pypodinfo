@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: pypodinfo
   labels:
-    app.kubernetes.io/names: pypodinfo
+    app.kubernetes.io/name: pypodinfo
 spec:
   replicas: 2
   minReadySeconds: 3

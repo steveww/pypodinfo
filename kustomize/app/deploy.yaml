@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: pypodinfo
-          image: docker.io/steveww/pypodinfo:latest
+          image: docker.io/steveww/pypodinfo:1.0.0
           imagePullPolicy: Always
           ports:
             - name: http
